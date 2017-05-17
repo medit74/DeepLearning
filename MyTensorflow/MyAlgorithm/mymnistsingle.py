@@ -11,7 +11,7 @@ from tensorflow.examples.tutorials.mnist import input_data
 '''
 Training Set
 '''
-mnist = input_data.read_data_sets("../resource/", one_hot=True)
+mnist = input_data.read_data_sets("../resources/", one_hot=True)
 
 '''
 Hyper Parameter
