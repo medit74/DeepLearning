@@ -7,28 +7,6 @@ Created on 2017. 4. 17.
 import numpy as np
 import tensorflow as tf
 
-# 1D Tensor
-a = tf.constant([312])
-print(a, tf.shape(a))
-
-# 1D Tensor
-b = tf.constant([1.,2.,3.])
-print(b, tf.shape(b))
-
-# 2D Tensor
-c = tf.constant([[1,2,3],[4,5,6]])
-print(c, tf.shape(c))
-
-# 3D Tensor
-d = tf.constant([[[1],[2],[3]],[[4],[5],[6]],[[7],[8],[9]]])
-print(d, tf.shape(d))
-
-# 4D Tensor
-e = tf.constant([[[[1,2,3,4],[5,6,7,8],[9,10,11,12]],
-                  [[13,14,15,16],[17,18,19,20],[21,22,23,24]]]])
-print(e, tf.shape(e))
-
-
 m1 = tf.constant([[1.,2.],[3.,4.]])
 m2 = tf.constant([[1.],[2.]])
 m12 = tf.matmul(m1, m2)
