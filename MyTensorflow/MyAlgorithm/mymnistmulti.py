@@ -38,6 +38,7 @@ X = tf.placeholder("float", [None, 784])
 Y = tf.placeholder("float", [None, 10])
 dropout_rate = tf.placeholder("float")
 
+
 W1 = tf.get_variable("W1", shape = [784, 256], initializer = xavier_init(784, 256))
 W2 = tf.get_variable("W2", shape = [256, 256], initializer = xavier_init(256, 256))
 W3 = tf.get_variable("W3", shape = [256,  85], initializer = xavier_init(256,  85))
@@ -95,7 +96,6 @@ with tf.Session() as sess:
     plt.show()
 
     ''' Testing ''' 
-    print("Accuracy: ", accuracy.eval({X: mnist.test.images, Y:mnist.test.labels, dropout_rate:1.}))
     print("Accuracy: ", sess.run(accuracy, feed_dict = {X: mnist.test.images, Y:mnist.test.labels, dropout_rate:1.} ))
     
     ''' Random Predict ''' 

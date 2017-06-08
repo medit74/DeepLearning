@@ -10,13 +10,14 @@ from tensorflow.examples.tutorials.mnist import input_data
 
 '''
 Functions for Weight and Bias
+ - truncated normal distribution - 정규분포에서 일부 구간을 잘라낸 분포
 '''
 def weight_variable(shape):
     initial = tf.truncated_normal(shape, stddev=0.1)
     return tf.Variable(initial)
 
 def bias_variable(shape):
-    initial = tf.constant(0.1, shape=shape)
+    initial = tf.zeros(shape=shape)
     return tf.Variable(initial)
 
 '''

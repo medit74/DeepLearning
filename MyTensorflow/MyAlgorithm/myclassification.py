@@ -15,7 +15,7 @@ data https://archive.ics.uci.edu/ml/machine-learning-databases/zoo/zoo.data
 tf.set_random_seed(6100)
 
 # data loading
-data = np.loadtxt('zoo.data.txt', delimiter = ',')
+data = np.loadtxt('../resources/zoo.data.txt', delimiter = ',')
 print(data)
 
 ## Train Data Split (Classification Number 정의 y_data >> 1 ~ 7

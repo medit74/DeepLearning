@@ -52,6 +52,7 @@ for step in range(2001):
     costList.append(costVal)
     if step%20 == 0:
         print(step, costVal, weightVal, biasVal)
+
     if step%500== 0:
         plt.plot(xPoint, yPoint, 'o', label='step={}'.format(step))
         plt.plot(xPoint, weightVal*xPoint+biasVal)
@@ -62,3 +63,4 @@ plt.plot(weightList, costList)
 plt.xlabel("weight")
 plt.ylabel("loss")
 plt.show()
+

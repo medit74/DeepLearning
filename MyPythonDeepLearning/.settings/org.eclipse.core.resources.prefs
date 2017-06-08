@@ -1,0 +1,17 @@
+eclipse.preferences.version=1
+encoding//Common/functions.py=utf-8
+encoding//Common/gradient.py=utf-8
+encoding//Common/gradient_2d.py=utf-8
+encoding//Common/layers.py=utf-8
+encoding//Common/mnist.py=utf-8
+encoding//Common/multi_layer_net.py=utf-8
+encoding//Common/multi_layer_net_extend.py=utf-8
+encoding//Common/optimizer.py=utf-8
+encoding//Common/trainer.py=utf-8
+encoding//Common/util.py=utf-8
+encoding//Convolution/simple_convnet.py=utf-8
+encoding//Convolution/train_convnet.py=utf-8
+encoding//Techniques/mybatchnorm.py=utf-8
+encoding//Techniques/myoptimizercomparenaive.py=utf-8
+encoding//Techniques/myweightinitcompare.py=utf-8
+encoding//resources/newfile.txt=UTF-8
