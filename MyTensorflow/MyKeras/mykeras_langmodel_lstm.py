@@ -43,26 +43,26 @@ print(Y, Y.shape)
 '''
 Build a Model
 '''
-model = Sequential()
-model.add(LSTM(num_classes, activation='tanh', input_shape=(timesteps, data_dim), return_sequences=True))
-model.add(TimeDistributed(Dense(num_classes)))
-model.add(Activation('softmax'))
-model.summary()
+y = Sequential()
+y.add(LSTM(num_classes, activation='tanh', input_shape=(timesteps, data_dim), return_sequences=True))
+y.add(TimeDistributed(Dense(num_classes)))
+y.add(Activation('softmax'))
+y.summary()
 
 '''
 Compile a Model
 '''
-model.compile(loss=categorical_crossentropy, optimizer=Adam(lr=0.001, beta_1=0.9, beta_2=0.999, epsilon=1e-08, decay=0.0), metrics=['accuracy'])
+y.compile(loss=categorical_crossentropy, optimizer=Adam(lr=0.001, beta_1=0.9, beta_2=0.999, epsilon=1e-08, decay=0.0), metrics=['accuracy'])
 
 '''
 Training a Model
 '''
-model.fit(X, Y, epochs=500)
+y.fit(X, Y, epochs=500)
 
 '''
 Predict
 '''
-predictions = model.predict(X, verbose=0)
+predictions = y.predict(X, verbose=0)
 
 for i, prediction in enumerate(predictions):
     print(prediction)

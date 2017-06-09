@@ -20,26 +20,26 @@ Y_test = np_utils.to_categorical(Y_test)
 '''
 Build a Model
 '''
-model = Sequential()
-model.add(Dense(units=256, input_dim=28*28, activation='relu'))
-model.add(Dense(units=256, activation='relu'))
-model.add(Dense(units=85, activation='relu'))
-model.add(Dense(units=28, activation='relu'))
-model.add(Dense(units=10, activation='softmax'))
+y = Sequential()
+y.add(Dense(units=256, input_dim=28*28, activation='relu'))
+y.add(Dense(units=256, activation='relu'))
+y.add(Dense(units=85, activation='relu'))
+y.add(Dense(units=28, activation='relu'))
+y.add(Dense(units=10, activation='softmax'))
 
 '''
 Compile a Model
 '''
-model.compile(loss='categorical_crossentropy', optimizer='sgd', metrics=['accuracy'])
+y.compile(loss='categorical_crossentropy', optimizer='sgd', metrics=['accuracy'])
 
 '''
 Training a Model
 '''
-model.fit(X_train, Y_train, batch_size=32, epochs=5)
+y.fit(X_train, Y_train, batch_size=32, epochs=5)
 
 '''
 Evaluate a Model
 '''
-loss_and_metrics = model.evaluate(X_test, Y_test, batch_size=32)
+loss_and_metrics = y.evaluate(X_test, Y_test, batch_size=32)
 
 print('\nloss_and_metrics : ' + str(loss_and_metrics))

@@ -35,6 +35,16 @@ display_step    = 10
 
 '''
 Build Model
+    -----------------------------------------------------------------------------------
+    input size | 전체 사이즈를 28*28*1로 처리
+    -----------------------------------------------------------------------------------
+    conv1      | filter 5*5*1,  32ea >> n*28*28*32
+               | pool 2*2            >> n*14*14*32
+    conv2      | filter 5*5*32, 64ea >> n*14*14*64
+               | pool 2*2            >> n*7*7*64
+    fc1        | reshape             >> 7*7*64, m   >> for fully-connected
+    out        | classes number      >> m, 10
+    -----------------------------------------------------------------------------------
 '''
 X = tf.placeholder(tf.float32, [None, 784])
 Y = tf.placeholder(tf.float32, [None, 10])
@@ -105,7 +115,6 @@ with tf.Session() as sess:
     plt.show()
 
     ''' Testing ''' 
-    print("Accuracy: ", accuracy.eval({X: mnist.test.images[:1000], Y:mnist.test.labels[:1000], dropout_rate:1.}))
     print("Accuracy: ", sess.run(accuracy, feed_dict = {X: mnist.test.images[:1000], Y:mnist.test.labels[:1000], dropout_rate:1.} ))
     
     ''' Random Predict ''' 

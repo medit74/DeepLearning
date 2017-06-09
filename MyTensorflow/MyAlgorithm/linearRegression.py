@@ -9,12 +9,11 @@ import matplotlib.pyplot as plt
 
 '''
 Training Set
-y = ax+b (a=0.22, b=0.78)
+ np.random.normal(평균, 표준편차) : Draw random samples from a normal (Gaussian) distribution.
 '''
 xPoint = []
 yPoint = []
-for idx in range(200):
-    # np.random.normal(평균, 표준편차) : Draw random samples from a normal (Gaussian) distribution.
+for idx in range(200):    
     x = np.random.normal(0.0, 0.5) 
     y = 0.22*x + 0.78 + np.random.normal(0.0, 0.1)
     xPoint.append(x)
@@ -24,21 +23,23 @@ plt.legend()
 plt.show()
 
 '''
-Build Model
+Build a Model
+y = ax+b (a=0.22, b=0.78)
 '''
 X = tf.placeholder(tf.float32, shape=[None])
 Y = tf.placeholder(tf.float32, shape=[None])
 W = tf.Variable(tf.random_normal([1], -1.0, 1.0), name = "weight")
 b = tf.Variable(tf.zeros([1]), name = "bias")
-# model
-model = W*X + b
+
+# y
+y = W*X + b
 # loss function
-cost = tf.reduce_mean(tf.square(model - Y))
+cost = tf.reduce_mean(tf.square(y - Y))
 # gradient descent
 optimizer = tf.train.GradientDescentOptimizer(learning_rate=0.01).minimize(cost)
 
 '''
-Train Model
+Training a Model
 '''
 sess = tf.Session()
 sess.run(tf.global_variables_initializer())

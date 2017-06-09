@@ -37,10 +37,8 @@ b = tf.Variable(tf.zeros([10]))
 
 affine              = tf.matmul(X,W) + b
 y                   = tf.nn.softmax(affine)
-# loss function
-#crossentropy        = tf.reduce_mean(-tf.reduce_sum(Y*tf.log(y), reduction_indices=[1]))
+# loss 
 loss = tf.losses.softmax_cross_entropy(onehot_labels=Y, logits=y)
-
 # gradient descent
 optimizer           = tf.train.GradientDescentOptimizer(learning_rate).minimize(loss)
 # accuracy
@@ -48,7 +46,7 @@ correct_prediction  = tf.equal(tf.argmax(y, 1), tf.argmax(Y, 1))
 accuracy            = tf.reduce_mean(tf.cast(correct_prediction, tf.float32)) ## cast: same shape as x
 
 '''
-Train Model
+Train a Model
 '''
 epochList = []
 costList  = []
@@ -73,7 +71,6 @@ with tf.Session() as sess:
     plt.show()
 
     ''' Testing ''' 
-    print("Accuracy: ", accuracy.eval({X: mnist.test.images, Y:mnist.test.labels}))
     print("Accuracy: ", sess.run(accuracy, feed_dict = {X: mnist.test.images, Y:mnist.test.labels} ))
     
     ''' Random Predict ''' 

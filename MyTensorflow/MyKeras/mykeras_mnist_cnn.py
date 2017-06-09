@@ -39,29 +39,29 @@ Y_test  = to_categorical(Y_test, 10)
 '''
 Build a Model
 '''
-model = Sequential()
-model.add(Conv2D(filters=32, kernel_size=(3, 3), strides=(1, 1), padding='same', activation='relu', input_shape=input_shape))
-model.add(Conv2D(filters=64, kernel_size=(3, 3), strides=(1, 1), padding='valid', activation='relu'))
-model.add(MaxPooling2D(pool_size=(2, 2)))
-model.add(Dropout(0.25))
-model.add(Flatten())
-model.add(Dense(128, activation='relu'))
-model.add(Dropout(0.5))
-model.add(Dense(10, activation='softmax'))
+y = Sequential()
+y.add(Conv2D(filters=32, kernel_size=(3, 3), strides=(1, 1), padding='same', activation='relu', input_shape=input_shape))
+y.add(Conv2D(filters=64, kernel_size=(3, 3), strides=(1, 1), padding='valid', activation='relu'))
+y.add(MaxPooling2D(pool_size=(2, 2)))
+y.add(Dropout(0.25))
+y.add(Flatten())
+y.add(Dense(128, activation='relu'))
+y.add(Dropout(0.5))
+y.add(Dense(10, activation='softmax'))
 
 '''
 Compile a Model
 '''
-model.compile(loss=categorical_crossentropy, optimizer=Adam(lr=0.001, beta_1=0.9, beta_2=0.999, epsilon=1e-08, decay=0.0), metrics=['accuracy'])
+y.compile(loss=categorical_crossentropy, optimizer=Adam(lr=0.001, beta_1=0.9, beta_2=0.999, epsilon=1e-08, decay=0.0), metrics=['accuracy'])
 
 '''
 Training a Model
 '''
-model.fit(X_train, Y_train, batch_size=32, epochs=5, verbose=1, validation_data=(X_test, Y_test))
+y.fit(X_train, Y_train, batch_size=32, epochs=5, verbose=1, validation_data=(X_test, Y_test))
 
 '''
 Evaluate a Model
 '''
-loss_and_metrics = model.evaluate(X_test, Y_test, verbose=0)
+loss_and_metrics = y.evaluate(X_test, Y_test, verbose=0)
 
 print('\nloss_and_metrics : ' + str(loss_and_metrics))
