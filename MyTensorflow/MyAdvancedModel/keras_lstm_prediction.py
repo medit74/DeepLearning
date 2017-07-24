@@ -1,6 +1,7 @@
 '''
 Created on 2017. 5. 12.
 @author: Byoungho Kang
+ http://machinelearningmastery.com/time-series-prediction-lstm-recurrent-neural-networks-python-keras/
 '''
 
 import numpy as np
